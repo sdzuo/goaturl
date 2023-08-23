@@ -1,5 +1,5 @@
 # Use the official SQL Server image as the base image
-FROM mcr.microsoft.com/mssql/server:2019-latest
+FROM mcr.microsoft.com/mssql/server
 
 # Set environment variables for SQL Server
 ENV ACCEPT_EULA=Y
