@@ -1,0 +1,22 @@
+<form (ngSubmit)="onSubmit()" class="container">
+    <input class="input-field" type="text" [(ngModel)]="longUrl" name="longUrl" placeholder="Enter Long URL"
+        [ngClass]="{ 'error-input': errormessage }" />
+    <div class="error-message" id="error-message" *ngIf="errormessage">Invalid Url.</div>
+    <button mat-raised-button color="accent" type="submit">
+        {{ buttonState === "shorten" ? "Shorten" : "Shorten Another" }}
+    </button>
+</form>
+
+<div *ngIf="showShortenedUrl" class="shortened-url container2">
+    <p>Your shortened URL:</p>
+    <form>
+        <a matTooltip="Visit URL" [matTooltipPosition]="tooltipPosition" [href]="shortenedUrl ? shortenedUrl : null"
+            target="_blank" class="shortened-url-input">
+            {{ shortenedUrl }}
+        </a>
+    </form>
+    <button matTooltip="Copy to clipboard" aria-label="Button that displays a tooltip when focused or hovered over"
+        class="buttons" mat-raised-button color="primary" [cdkCopyToClipboard]="shortenedUrl ? shortenedUrl : ''">
+        <mat-icon>content_copy</mat-icon> Copy
+    </button>
+</div>

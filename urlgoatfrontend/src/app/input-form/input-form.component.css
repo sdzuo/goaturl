@@ -1,0 +1,69 @@
+.shortened-url-input {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.shortened-url-input::selection {
+    background-color: #3498db;
+    color: white;
+}
+
+.input-field {
+    margin-bottom: 10px;
+}
+
+p {
+    font-family: 'League Spartan', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.error-input {
+    border: 2px solid red;
+    /* Red border for the input field */
+}
+
+#error-message {
+    color: red;
+}
+
+.container {
+    max-width: 30 rem;
+    padding: 18px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.container2 {
+    max-width: 30 rem;
+    padding: 18px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 8px;
+    /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 4px;
+}
+
+.shortened-url {
+    margin-top: 20px;
+    text-align: center;
+}
