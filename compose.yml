@@ -1,0 +1,40 @@
+services:
+  backend:
+    build:
+      context: ./urlgoatbackend
+      dockerfile: Dockerfile
+    ports:
+      - "7203:7203"
+   # environment:
+  #    ASPNETCORE_ENVIRONMENT: Development
+  #    ConnectionStrings__DefaultConnection: "Server=sql_server2022,1433;Database=urlshortenertest;User=sa;Password=YourStrongPassword;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"
+  #  depends_on:
+  #    - db
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sql_server2022
+    ports:
+      - "1433:1433"
+    environment:
+      MSSQL_SA_PASSWORD: YourStrongPassword
+      ACCEPT_EULA: Y
+      MSSQL_PID: Developer  # You can change this to other editions if needed
+      MSSQL_AGENT_ENABLED: false  # Disable SQL Server Agent
+      MSSQL_LOG_QUERIES: "ON"    # Set to "ON" to log queries
+    volumes:
+      - ./sql-scripts:/docker-entrypoint-initdb.d
+    command:
+      - /bin/bash
+      - -c
+      - |
+        /opt/mssql/bin/sqlservr & 
+        sleep 10
+        /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P YourStrongPassword -d master -i /docker-entrypoint-initdb.d/setup.sql
+  angular:
+    build:
+      context: ./urlgoatfrontend
+      dockerfile: Dockerfile
+    ports:
+      - "4200:4200"
+    depends_on:
+      - backend

@@ -50,7 +50,7 @@ namespace urlgoatbackend.Controllers
                 // Return a response with the newly created short URL
                 var response = new
                 {
-                    shortenedUrl = $"https://localhost:7203/api/UrlMapping/{shortKey}",
+                    shortenedUrl = $"http://localhost:7203/api/UrlMapping/{shortKey}",
                     sKey = shortKey,
                     newurl = true
                 };
@@ -61,7 +61,7 @@ namespace urlgoatbackend.Controllers
             // If the long URL already exists, return the existing short URL
             var existingResponse = new
             {
-                shortenedUrl = $"https://localhost:7203/api/UrlMapping/{existingUrlMap.ShortKey}",
+                shortenedUrl = $"http://localhost:7203/api/UrlMapping/{existingUrlMap.ShortKey}",
                 sKey = existingUrlMap.ShortKey,
                 newurl = false
             };

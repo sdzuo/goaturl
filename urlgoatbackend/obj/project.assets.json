@@ -8602,11 +8602,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Shamil\\source\\repos\\urlgoatbackend\\urlgoatbackend\\urlgoatbackend.csproj",
+      "projectUniqueName": "c:\\Users\\Shamil\\source\\repos\\urlgoatbackend\\urlgoatbackend\\urlgoatbackend.csproj",
       "projectName": "urlgoatbackend",
-      "projectPath": "C:\\Users\\Shamil\\source\\repos\\urlgoatbackend\\urlgoatbackend\\urlgoatbackend.csproj",
+      "projectPath": "c:\\Users\\Shamil\\source\\repos\\urlgoatbackend\\urlgoatbackend\\urlgoatbackend.csproj",
       "packagesPath": "C:\\Users\\Shamil\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Shamil\\source\\repos\\urlgoatbackend\\urlgoatbackend\\obj\\",
+      "outputPath": "c:\\Users\\Shamil\\source\\repos\\urlgoatbackend\\urlgoatbackend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Shamil\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5qu7AwYgrZWRFcl/RT9dk72eewNnBZrofCLcpVeg7CyyIbwYAk14Lgpj2FPtvndswhjRQ00d5Pau7ZNJRBt18A==",
+  "dgSpecHash": "tbfFtp3mLXYL1VrmuWkVKvn0Rv1Qko9CmqgRRUJMrfAySLZGlqJBz3G+MOkbKiqTmIUWOsZ2M+HQvsXBvuqI5g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Shamil\\source\\repos\\urlgoatbackend\\urlgoatbackend\\urlgoatbackend.csproj",
+  "projectFilePath": "c:\\Users\\Shamil\\source\\repos\\urlgoatbackend\\urlgoatbackend\\urlgoatbackend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Shamil\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Shamil\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

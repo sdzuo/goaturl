@@ -14,10 +14,13 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowMultipleOrigins",
         builder => builder
-            .WithOrigins("https://localhost:4200") // Specify allowed origins for frontend
+            .WithOrigins("http://localhost:4200") // Specify allowed origins for frontend
             .AllowAnyHeader()
             .AllowAnyMethod());
 });
+
+//adding health checks for when we dockerize
+builder.Services.AddHealthChecks();  
 
 // Configure Swagger/OpenAPI
 builder.Services.AddEndpointsApiExplorer();
@@ -35,6 +38,8 @@ builder.Services.AddTransient<Seed>();
 builder.Services.AddScoped<IUrlMappingRepository, UrlMappingRepository>();
 
 var app = builder.Build();
+
+app.MapHealthChecks("/health"); //mapping health checks
 
 // Seed the database if 'seeddata' argument is provided
 if (args.Length == 1 && args[0].ToLower() == "seeddata")

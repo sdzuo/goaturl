@@ -1,3 +1,9 @@
+C:\Users\Shamil\source\repos\urlgoatbackend\Docker\Angular
+
+C:\Users\Shamil\source\repos\urlgoatbackend\urlgoatfrontend
+
+../../
+
 # Use the official Node.js image as the base image
 FROM node:16 AS builder
 #Create a directory using the 'mkdir' command
@@ -5,13 +11,14 @@ RUN mkdir /app
 # Set the created directory as the working directory
 WORKDIR /app
 COPY ../../urlgoatfrontend/package*.json  /app/
-RUN npm install
-WORKDIR /app
-COPY ../../urlgoatfrontend  /app/
-RUN npm run build --prod
+# COPY . .
+# COPY /mnt/c/Users/Shamil/source/repos/urlgoatbackend/urlgoatfrontend/package*.json  /app/
+# RUN npm install
+# COPY ../../urlgoatfrontend/  .
+# RUN npm run build
 
 # Use a lightweight Nginx image as the final image
 FROM nginx:alpine
-COPY --from=builder /app/dist /usr/share/nginx/html
+#COPY --from=builder /app/dist /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
