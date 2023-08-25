@@ -1,0 +1,23 @@
+ckerfile for debug
+
+
+# Get the base image with the ASP.NET 6.0 SDK
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS base
+WORKDIR /app
+
+# Set the environment variable to enable development mode
+ENV ASPNETCORE_ENVIRONMENT Development
+
+# Copy csproj and restore
+COPY ["urlgoatbackend.csproj", "./"]
+RUN dotnet restore "./urlgoatbackend.csproj"
+
+# Copy other files
+COPY . .
+
+# Expose the port your app will run on (adjust as needed)
+EXPOSE 80
+EXPOSE 443
+
+# Specify the entry point for running the application in debug mode
+CMD ["dotnet", "watch", "run"]

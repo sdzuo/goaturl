@@ -1,15 +1,23 @@
-﻿# Build Stage
-FROM mcr.microsoft.com/dotnet/sdk:6.0-focal AS build
-WORKDIR /src
-COPY . .
-RUN dotnet restore urlgoatbackend.csproj --disable-parallel
-RUN dotnet publish urlgoatbackend.csproj -c release -o /app --no-restore
-
-# Serve Stage
-FROM mcr.microsoft.com/dotnet/aspnet:6.0-focal
+﻿# #Get base image
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app
-COPY --from=build /app ./
 
-EXPOSE 7203
+#Copy csproj and restore
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+WORKDIR /src
+COPY ["urlgoatbackend.csproj", "./"]
+RUN dotnet restore "./urlgoatbackend.csproj"
 
+# #Copy other files and build
+COPY . .
+RUN dotnet build "urlgoatbackend.csproj" -c Release -o /app
+
+#Publish
+FROM build AS publish
+RUN dotnet publish "urlgoatbackend.csproj" -c Release -o /app
+
+FROM base AS final
+WORKDIR /app
+EXPOSE 80
+COPY --from=publish /app .
 ENTRYPOINT ["dotnet", "urlgoatbackend.dll"]

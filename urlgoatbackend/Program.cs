@@ -37,6 +37,8 @@ builder.Services.AddDbContext<DataContext>(options =>
 builder.Services.AddTransient<Seed>();
 builder.Services.AddScoped<IUrlMappingRepository, UrlMappingRepository>();
 
+builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
 var app = builder.Build();
 
 app.MapHealthChecks("/health"); //mapping health checks
@@ -57,14 +59,17 @@ void SeedData(IHost app)
 }
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+/* if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+} */
 
-app.UseHttpsRedirection();
-app.UseAuthorization();
+app.UseSwagger();
+app.UseSwaggerUI();
+
+//app.UseHttpsRedirection();
+//app.UseAuthorization();
 
 // Enable CORS
 app.UseCors("AllowMultipleOrigins");

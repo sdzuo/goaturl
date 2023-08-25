@@ -96,3 +96,7 @@ C:\Users\Shamil\source\repos\urlgoatbackend\urlgoatbackend\bin\Debug\net6.0\Syst
 C:\Users\Shamil\source\repos\urlgoatbackend\urlgoatbackend\bin\Debug\net6.0\System.Web.Http.Cors.dll
 C:\Users\Shamil\source\repos\urlgoatbackend\urlgoatbackend\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\Shamil\source\repos\urlgoatbackend\urlgoatbackend\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Users\Shamil\source\repos\urlgoatbackend\urlgoatbackend\bin\Debug\net6.0\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
+C:\Users\Shamil\source\repos\urlgoatbackend\urlgoatbackend\bin\Debug\net6.0\Microsoft.Extensions.Diagnostics.HealthChecks.dll
+C:\Users\Shamil\source\repos\urlgoatbackend\urlgoatbackend\bin\Debug\net6.0\Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll
+C:\Users\Shamil\source\repos\urlgoatbackend\urlgoatbackend\bin\Debug\net6.0\Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore.dll

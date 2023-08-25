@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Shamil\\source\\repos\\urlgoatbackend\\urlgoatbackend\\urlgoatbackend.csproj": {}
+    "C:\\Users\\Shamil\\source\\repos\\urlgoatbackend\\urlgoatbackend\\urlgoatbackend.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Shamil\\source\\repos\\urlgoatbackend\\urlgoatbackend\\urlgoatbackend.csproj": {
+    "C:\\Users\\Shamil\\source\\repos\\urlgoatbackend\\urlgoatbackend\\urlgoatbackend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Shamil\\source\\repos\\urlgoatbackend\\urlgoatbackend\\urlgoatbackend.csproj",
+        "projectUniqueName": "C:\\Users\\Shamil\\source\\repos\\urlgoatbackend\\urlgoatbackend\\urlgoatbackend.csproj",
         "projectName": "urlgoatbackend",
-        "projectPath": "c:\\Users\\Shamil\\source\\repos\\urlgoatbackend\\urlgoatbackend\\urlgoatbackend.csproj",
+        "projectPath": "C:\\Users\\Shamil\\source\\repos\\urlgoatbackend\\urlgoatbackend\\urlgoatbackend.csproj",
         "packagesPath": "C:\\Users\\Shamil\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Shamil\\source\\repos\\urlgoatbackend\\urlgoatbackend\\obj\\",
+        "outputPath": "C:\\Users\\Shamil\\source\\repos\\urlgoatbackend\\urlgoatbackend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Shamil\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -52,6 +52,10 @@
               "target": "Package",
               "version": "[5.2.9, )"
             },
+            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.21, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[7.0.10, )"
@@ -75,6 +79,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.10, )"
+            },
+            "Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.21, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

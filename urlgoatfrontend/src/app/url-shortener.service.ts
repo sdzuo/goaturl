@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/internal/Observable';
   providedIn: 'root'
 })
 export class UrlShortenerService {
-  private readonly APIUrl = 'http://localhost:7203/api/UrlMapping/';  
+  private readonly APIUrl = 'http://localhost:5150/api/UrlMapping/';  
   private readonly urlValidationSchema = z.string().url();
 
   // httpOptions was used for debugging and testing
