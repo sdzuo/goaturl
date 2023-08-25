@@ -28,7 +28,7 @@ Before you begin, ensure the following dependencies are met:
 3. **Build and Launch Containers**:
    - Execute the following command to initiate Docker Compose and build the necessary containers:
      ```bash
-     docker-compose up --build
+     docker compose up --build
      ```
 
 ## Usage 
