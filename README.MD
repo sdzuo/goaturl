@@ -2,103 +2,56 @@
 
 URL Goat is a straightforward URL shortener project crafted with ASP.NET Core 6 on the backend and Angular on the frontend. This application empowers you to condense long URLs into concise, user-friendly links.
 
-## Features
+## Key Features
 
-- URL shortening: Easily convert long URLs into short links.
-- Validation: Validate URLs before shortening to ensure they are valid.
-- Error handling: Gracefully handle errors and display user-friendly messages.
-- Entity Framework Core: The project uses Entity Framework Core for database operations.
-- AutoMapper: AutoMapper is used for object mapping.
+- **URL Shortening**: Seamlessly transform extensive URLs into shorter, manageable links.
+- **Validation**: Verify the validity of URLs before shortening to ensure they are functional.
+- **Error Handling**: Gracefully manage errors and present user-friendly messages.
+
+This guide outlines the setup process using Docker Compose, simplifying deployment and management.
 
 ## Prerequisites
 
-Before you begin, make sure you have the following dependencies installed on your machine:
+Before you begin, ensure the following dependencies are met:
 
-### For the Backend (ASP.NET Core 6)
-
-1. **Visual Studio**: Download and install [Visual Studio](https://visualstudio.microsoft.com/vs/).
-
-2. **SQL Server Management Studio (SSMS)**: Download and install [SQL Server Management Studio (SSMS)](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16).
-
-3. **Git**: Install Git by following the instructions [here](https://github.com/git-guides/install-git).
-
-4. **Visual Studio Code**: Download and install [Visual Studio Code](https://code.visualstudio.com/).
-
-5. .NET SDK 6.0: You need the .NET SDK 6.0 installed. You can download it from [here](https://dotnet.microsoft.com/download/dotnet/6.0).
-### For the Frontend (Angular)
-
-1. **Node.js and npm**: If you don't have Node.js and npm installed, download and install them from [here](https://nodejs.org/).
-
-2. **Angular CLI**: Install Angular CLI globally using npm:
-
-   ```sh
-   npm install -g @angular/cli
-   ```
-
+- **Git**: Install Git by following the instructions at [Git Installation Guide](https://github.com/git-guides/install-git).
+- **Docker Desktop**: Download and install Docker Desktop from [Docker's official website](https://www.docker.com/products/docker-desktop/).
 
 ## Getting Started
 
-Follow these steps to set up and run the project locally:
+1. **Clone the Repository**:
+   - Use Git to clone the project repository from [URL Goat Repository](https://github.com/sdzuo/goaturl).
 
-### Backend (ASP.NET Core)
+2. **Navigate to Project Root**:
+   - Open a terminal/command prompt and navigate to the root folder of the cloned project.
 
-1. Clone this repository:
+3. **Build and Launch Containers**:
+   - Execute the following command to initiate Docker Compose and build the necessary containers:
+     ```bash
+     docker-compose up --build
+     ```
 
-git clone https://github.com/your-username/url-goat.git
+## Usage 
 
+1. **Database Initialization**:
+   - After executing the Docker Compose command, you'll notice a SQL script running. Wait until it completes, and you should see a message stating "Changed database context to urlshortener." This process typically takes 1-2 minutes.
 
-2. Navigate to the backend directory:
+2. **Access the Frontend**:
+   - Once the database is ready, you can access the frontend application at `http://localhost:4200`.
 
-cd url-goat-backend
+3. **Shorten URLs**:
+   - Enter a long URL into the provided input field and click the "Shorten" button.
 
-3. Configure the database
+4. **View Shortened URLs**:
+   - If the URL is valid, the shortened URL will be displayed on the screen.
 
-- Open the `appsettings.json` file and update the database connection string as needed. By default, it's configured for SQL Server.
-```json
-"ConnectionStrings": {
-  "DefaultConnection": "Server=your-server;Database=YourDatabase;User=YourUser;Password=YourPassword;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"
-}
-```
-4. Initialize the database with seed data:
-- Open the Package Manager Console in Visual Studio IDE
-- a.  Add-Migration InitialCreate 
-- b. Add-Migration NewMigrationName
-- c. Update-Database
-- d. Go to a terminal 
-  - i. Run the following command
-  ```bash
-      dotnet run seeddata
-  ```
+5. **Note**:
+   - If you attempt to make requests before the database setup is complete, you may encounter errors in the browser console.
 
-5. Restore packages and run the ASP.NET Core application:
+## Legal Notice
 
-dotnet restore
-dotnet run
+All rights reserved.
 
-The API will be available at `https://localhost:7203`.
+This comprehensive guide simplifies the setup process for using Docker Compose with the URL Goat application, allowing you to harness its URL shortening capabilities efficiently. If you have any questions or encounter issues during setup, feel free to reach out for assistance.
 
-### Frontend (Angular)
-
-1. Navigate to the frontend directory:
-
-
-2. Install dependencies:
-
-``` bash
-        npm install
-```
-
-3. Start the Angular development server:
-```
-ng serve -o
-```
-
-The frontend will be available at `http://localhost:4200`.
-
-Note: If you encounter any issues during the installation process, make sure you have Node.js and npm (Node Package Manager) installed. You can download them from [here](https://nodejs.org/).
-
-## Usage
-
-1. Access the frontend application at `http://localhost:4200`.
-2. Enter a long URL and click the "Shorten" button.
-3. The shortened URL will be displayed if the URL is valid.
+Feel free to further customize this README according to your project's specific needs or branding.
