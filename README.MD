@@ -21,6 +21,7 @@ Before you begin, ensure the following dependencies are met:
 
 1. **Clone the Repository**:
    - Use Git to clone the project repository from [URL Goat Repository](https://github.com/sdzuo/goaturl).
+   - [Cloning a repository] https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository
 
 2. **Navigate to Project Root**:
    - Open a terminal/command prompt and navigate to the root folder of the cloned project.
@@ -47,7 +48,7 @@ Before you begin, ensure the following dependencies are met:
 
 5. **Note**:
    - If you attempt to make requests before the database setup is complete, you may encounter errors in the browser console.
-   - If you are using a Apple Silicon Max, please read the following https://devblogs.microsoft.com/azure-sql/development-with-sql-in-containers-on-macos/.
+   - If you are using macOS, please read the following https://devblogs.microsoft.com/azure-sql/development-with-sql-in-containers-on-macos/.
    - If you would rather run the project locally, please see the LOCALREADME.MD file.
 
 ## Legal Notice
