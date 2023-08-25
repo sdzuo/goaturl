@@ -21,7 +21,7 @@ Before you begin, ensure the following dependencies are met:
 
 1. **Clone the Repository**:
    - Use Git to clone the project repository from [URL Goat Repository](https://github.com/sdzuo/goaturl).
-   - [Cloning a repository]https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository
+   - [Cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
 
 2. **Navigate to Project Root**:
    - Open a terminal/command prompt and navigate to the root folder of the cloned project.
