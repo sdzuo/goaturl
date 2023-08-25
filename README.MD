@@ -47,6 +47,8 @@ Before you begin, ensure the following dependencies are met:
 
 5. **Note**:
    - If you attempt to make requests before the database setup is complete, you may encounter errors in the browser console.
+   - If you are using a Apple Silicon Max, please read the following https://devblogs.microsoft.com/azure-sql/development-with-sql-in-containers-on-macos/.
+   - If you would rather run the project locally, please see the LOCALREADME.MD file.
 
 ## Legal Notice
 

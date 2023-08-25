@@ -25,9 +25,9 @@ services:
       - -c
       - |
         /opt/mssql/bin/sqlservr & 
-        sleep 60
+        while ! /opt/mssql-tools/bin/sqlcmd -S sql_server2022,1433 -U SA -P 'S3cur3P@ssW0rd!' -Q 'SELECT 1'; do sleep 1; done
         /opt/mssql-tools/bin/sqlcmd -S sql_server2022 -U SA -P S3cur3P@ssW0rd! -d master -i /docker-entrypoint-initdb.d/setup.sql
-        tail -f /dev/null #Keeps the container running   
+        tail -f /dev/null #Keeps the container running       
   angular:
     build:
       context: ./urlgoatfrontend
