@@ -1,5 +1,5 @@
 # Stage 1: Build the Angular application
-FROM node:latest as build
+FROM node:18-bullseye as build
 
 # Set the working directory in the build stage
 WORKDIR /app
