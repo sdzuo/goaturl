@@ -8,7 +8,7 @@ namespace urlgoatbackend.Interfaces
         bool UrlExists(int urlId);
 
         // Get a URL mapping by its long URL
-        Task<UrlMapping> GetUrlMappingByUrl(string url);
+        Task<UrlMapping?> GetUrlMappingByUrl(string url);
 
         // Check if a short key exists
         bool ShortKeyExists(string shortKey);
@@ -17,7 +17,7 @@ namespace urlgoatbackend.Interfaces
         void CreateShortUrl(UrlMapping urlMapping);
 
         // Get the original URL by its short key asynchronously
-        Task<UrlMapping> GetOriginalUrlByShortKeyAsync(string shortKey);
+        Task<UrlMapping?> GetOriginalUrlByShortKeyAsync(string shortKey);
 
         // Save changes asynchronously
         Task SaveAsync();

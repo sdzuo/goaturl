@@ -73,7 +73,7 @@ namespace urlgoatbackend.Controllers
         public async Task<IActionResult> RedirectToOriginalUrl(string shortKey)
         {
             // Retrieve the original URL mapping based on the short key
-            UrlMapping urlMapping = await _urlMappingRepository.GetOriginalUrlByShortKeyAsync(shortKey);
+            UrlMapping? urlMapping = await _urlMappingRepository.GetOriginalUrlByShortKeyAsync(shortKey);
 
             if (urlMapping == null)
             {

@@ -6,6 +6,6 @@ namespace urlgoatbackend.Dto
     {
         [Required]
         [Url]
-        public string LongUrl { get; set; }
+        public string LongUrl { get; set; } = string.Empty;
     }
 }

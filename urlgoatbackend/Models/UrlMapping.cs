@@ -2,8 +2,8 @@
 {
     public class UrlMapping
     {
-        public string ShortKey { get; set; }
-        public string LongUrl { get; set; }
+        public string ShortKey { get; set; } = string.Empty;
+        public string LongUrl { get; set; } = string.Empty;
         public int Id { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using urlgoatbackend;
 using urlgoatbackend.Data;
 using urlgoatbackend.Interfaces;
@@ -53,11 +54,11 @@ if (args.Length == 1 && args[0].ToLower() == "seeddata")
 
 void SeedData(IHost app)
 {
-    var scopedFactory = app.Services.GetService<IServiceScopeFactory>();
+    var scopedFactory = app.Services.GetRequiredService<IServiceScopeFactory>();
 
     using (var scope = scopedFactory.CreateScope())
     {
-        var service = scope.ServiceProvider.GetService<Seed>();
+        var service = scope.ServiceProvider.GetRequiredService<Seed>();
         service.SeedData();
     }
 }

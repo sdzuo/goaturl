@@ -21,7 +21,7 @@ namespace urlgoatbackend.Repository
         }
 
         // Retrieve the original URL mapping by short key asynchronously
-        public async Task<UrlMapping> GetOriginalUrlByShortKeyAsync(string shortKey)
+        public async Task<UrlMapping?> GetOriginalUrlByShortKeyAsync(string shortKey)
         {
             try
             {
@@ -37,7 +37,7 @@ namespace urlgoatbackend.Repository
 
 
         // Retrieve a URL mapping by long URL asynchronously
-        public async Task<UrlMapping> GetUrlMappingByUrl(string longUrl)
+        public async Task<UrlMapping?> GetUrlMappingByUrl(string longUrl)
         {
             return await _context.UrlMappings.FirstOrDefaultAsync(u => u.LongUrl == longUrl);
         }

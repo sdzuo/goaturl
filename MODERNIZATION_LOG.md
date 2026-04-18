@@ -146,6 +146,89 @@ from:
 
 The stack now has explicit readiness checks for the database and backend so startup sequencing is based on service health instead of simple container launch order.
 
+## Backend Nullable Warning Cleanup
+
+### Tightened nullable contracts in backend models and repository APIs
+
+Updated:
+
+- [`urlgoatbackend/Models/UrlMapping.cs`](./urlgoatbackend/Models/UrlMapping.cs)
+- [`urlgoatbackend/Models/CreateShortUrl.cs`](./urlgoatbackend/Models/CreateShortUrl.cs)
+- [`urlgoatbackend/Dto/CreateShortUrlDto.cs`](./urlgoatbackend/Dto/CreateShortUrlDto.cs)
+- [`urlgoatbackend/Interfaces/IUrlMappingRepository.cs`](./urlgoatbackend/Interfaces/IUrlMappingRepository.cs)
+- [`urlgoatbackend/Repository/UrlMappingRepository.cs`](./urlgoatbackend/Repository/UrlMappingRepository.cs)
+- [`urlgoatbackend/Controllers/UrlMappingController.cs`](./urlgoatbackend/Controllers/UrlMappingController.cs)
+- [`urlgoatbackend/Program.cs`](./urlgoatbackend/Program.cs)
+
+Changes:
+
+- initialized non-nullable string properties with safe defaults
+- changed repository methods that can legitimately return no record from `Task<UrlMapping>` to `Task<UrlMapping?>`
+- updated controller code to handle nullable repository results explicitly
+- changed seed startup resolution to use `GetRequiredService(...)` instead of nullable service lookups
+
+### Why this was done
+
+The remaining compiler warnings were no longer package or Docker issues. They were nullable-reference warnings caused by:
+
+- non-nullable model properties without default initialization
+- methods claiming they always return an entity when they can actually return `null`
+- dependency injection lookups using APIs that return nullable values
+
+### Result
+
+The backend nullability annotations now match the actual runtime behavior more accurately, reducing noise in the build and making the code contracts clearer.
+
+## SQL Server Image Pinning
+
+### Pinned the SQL Server container image to a specific tested release
+
+Updated [`compose.yml`](./compose.yml)
+
+Changed:
+
+```yaml
+image: "mcr.microsoft.com/mssql/server:2022-latest"
+```
+
+to:
+
+```yaml
+image: "mcr.microsoft.com/mssql/server:2022-CU24-GDR1-ubuntu-22.04"
+```
+
+### Why this was done
+
+The floating `2022-latest` tag can change over time, which makes rebuilds less reproducible.
+
+Pinning the image to a specific SQL Server 2022 release tag means future rebuilds will stay on that tested release unless the tag is intentionally changed.
+
+### Verification basis
+
+Registry inspection confirmed that at the time of pinning:
+
+- `2022-latest`
+- `2022-CU24-GDR1-ubuntu-22.04`
+
+resolved to the same image manifest digest:
+
+- `sha256:a3afbf7b43c3d59bcae7668245613afa0a432648b7ad4bafd16abf9f9d4ecc04`
+
+An attempt to pin by digest directly caused a Docker Desktop unpack error on this machine, so the project was pinned to the exact release tag instead of the tag-plus-digest form.
+
+### Result
+
+The project now gets the stability benefits of staying on SQL Server 2022 while avoiding unplanned image drift from a floating tag.
+
+### Local cleanup
+
+After pinning the SQL Server image, the old local floating tag was removed:
+
+- removed local tag: `mcr.microsoft.com/mssql/server:2022-latest`
+- kept local pinned tag: `mcr.microsoft.com/mssql/server:2022-CU24-GDR1-ubuntu-22.04`
+
+This cleanup was limited to the project-related SQL image reference so unrelated Docker images were not touched.
+
 ## Verification Performed
 
 Verified during the modernization work:
