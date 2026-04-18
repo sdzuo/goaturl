@@ -4,7 +4,6 @@ using urlgoatbackend.Dto;
 using urlgoatbackend.Interfaces;
 using urlgoatbackend.Models;
 using urlgoatbackend.Helper;
-using Microsoft.AspNetCore.Cors; // Enable CORS
 
 namespace urlgoatbackend.Controllers
 {
@@ -22,7 +21,6 @@ namespace urlgoatbackend.Controllers
             _mapper = mapper;
         }
 
-        [EnableCors] // Enable CORS for this controller
         [HttpPost("CreateShortUrl")] // Route for creating short URLs
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
@@ -69,7 +67,6 @@ namespace urlgoatbackend.Controllers
             return Ok(existingResponse); // Return a 200 OK response
         }
 
-        [EnableCors] // Enable CORS for this controller
         [HttpGet("{shortKey}")] // Route for redirecting to the original URL
         [ProducesResponseType(302)] // Redirect status code
         [ProducesResponseType(404)] // Not found status code

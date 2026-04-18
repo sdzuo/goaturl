@@ -9,7 +9,6 @@ services:
       - db
   db:
     image: "mcr.microsoft.com/mssql/server:2022-latest"
-    container_name: sql_server2022
     ports:
       - "1433:1433"
     environment:
@@ -18,16 +17,6 @@ services:
       MSSQL_PID: Developer
       MSSQL_AGENT_ENABLED: false  # Disable SQL Server Agent
       MSSQL_LOG_QUERIES: "ON"    # Set to "ON" to log queries
-    volumes:
-      - ./sql-scripts:/docker-entrypoint-initdb.d
-    command:
-      - /bin/bash
-      - -c
-      - |
-        /opt/mssql/bin/sqlservr & 
-        while ! /opt/mssql-tools/bin/sqlcmd -S sql_server2022,1433 -U SA -P 'S3cur3P@ssW0rd!' -Q 'SELECT 1'; do sleep 1; done
-        /opt/mssql-tools/bin/sqlcmd -S sql_server2022 -U SA -P S3cur3P@ssW0rd! -d master -i /docker-entrypoint-initdb.d/setup.sql
-        tail -f /dev/null #Keeps the container running       
   angular:
     build:
       context: ./urlgoatfrontend
